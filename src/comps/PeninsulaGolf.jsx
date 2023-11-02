@@ -41,6 +41,7 @@ function calculateDistanceForCurrentHole(currentLocation, currentHole, holeLocat
 }
 
 function PeninsulaGolf() {
+
   const [currentHole, setCurrentHole] = useState(1);
   const [currentLocation, setCurrentLocation] = useState(null);
   const [distance, setDistance] = useState(null); // Store the distance for the current hole
@@ -53,7 +54,7 @@ function PeninsulaGolf() {
           longitude: position.coords.longitude
         };
         setCurrentLocation(location);
-        console.log(currentLocation);
+        console.log(currentLocation)
 
         // Calculate the distance for the current hole when the current location is set
         const calculatedDistance = calculateDistanceForCurrentHole(location, currentHole, holeLocations);
@@ -66,30 +67,9 @@ function PeninsulaGolf() {
     }
   }
 
-  // Use watchPosition to continuously monitor the user's location
   useEffect(() => {
-    if (navigator.geolocation) {
-      const watchId = navigator.geolocation.watchPosition((position) => {
-        const location = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        };
-        setCurrentLocation(location);
-
-        // Calculate the distance for the current hole when the location changes
-        const calculatedDistance = calculateDistanceForCurrentHole(location, currentHole, holeLocations);
-        setDistance(calculatedDistance);
-      }, (error) => {
-        console.error('Error getting location:', error);
-      });
-
-      // Clean up the watcher when the component unmounts
-      return () => {
-        navigator.geolocation.clearWatch(watchId);
-      };
-    } else {
-      console.error('Geolocation is not supported in this browser.');
-    }
+    // Call handleGetLocation whenever currentHole changes
+    handleGetLocation();
   }, [currentHole]);
 
 
