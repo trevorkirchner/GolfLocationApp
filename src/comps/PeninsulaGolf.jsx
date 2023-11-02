@@ -68,8 +68,28 @@ function PeninsulaGolf() {
   }
 
   useEffect(() => {
-    // Call handleGetLocation whenever currentHole changes
-    handleGetLocation();
+    if (navigator.geolocation) {
+      const watchId = navigator.geolocation.watchPosition((position) => {
+        const location = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        };
+        setCurrentLocation(location);
+
+        // Calculate the distance for the current hole when the location changes
+        const calculatedDistance = calculateDistanceForCurrentHole(location, currentHole, holeLocations);
+        setDistance(calculatedDistance);
+      }, (error) => {
+        console.error('Error getting location:', error);
+      });
+
+      // Clean up the watcher when the component unmounts
+      return () => {
+        navigator.geolocation.clearWatch(watchId);
+      };
+    } else {
+      console.error('Geolocation is not supported in this browser.');
+    }
   }, [currentHole]);
 
 
