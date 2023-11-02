@@ -53,7 +53,7 @@ function PeninsulaGolf() {
           longitude: position.coords.longitude
         };
         setCurrentLocation(location);
-        console.log(currentLocation)
+        console.log(currentLocation);
 
         // Calculate the distance for the current hole when the current location is set
         const calculatedDistance = calculateDistanceForCurrentHole(location, currentHole, holeLocations);
@@ -66,29 +66,33 @@ function PeninsulaGolf() {
     }
   }
 
+  // Use watchPosition to continuously monitor the user's location
   useEffect(() => {
-    // Call handleGetLocation whenever currentHole changes
-    handleGetLocation();
+    if (navigator.geolocation) {
+      const watchId = navigator.geolocation.watchPosition((position) => {
+        const location = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        };
+        setCurrentLocation(location);
+
+        // Calculate the distance for the current hole when the location changes
+        const calculatedDistance = calculateDistanceForCurrentHole(location, currentHole, holeLocations);
+        setDistance(calculatedDistance);
+      }, (error) => {
+        console.error('Error getting location:', error);
+      });
+
+      // Clean up the watcher when the component unmounts
+      return () => {
+        navigator.geolocation.clearWatch(watchId);
+      };
+    } else {
+      console.error('Geolocation is not supported in this browser.');
+    }
   }, [currentHole]);
 
 
-
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-
-  useEffect(() => {
-    // Function to update the window height when the window is resized
-    function handleResize() {
-      setWindowHeight(window.innerHeight);
-    }
-
-    // Attach the event listener
-    window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
 
   return (
@@ -135,7 +139,7 @@ function PeninsulaGolf() {
           <Text color='white' fontSize='8vw' fontWeight='bold'>
             Center
           </Text>
-          <Text color='white' fontSize='25vw' fontWeight='bold'>
+          <Text color='white' fontSize='30vw' fontWeight='bold'>
             {distance.distance}
           </Text>
           </div>
