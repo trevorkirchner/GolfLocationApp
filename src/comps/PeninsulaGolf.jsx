@@ -73,9 +73,26 @@ function PeninsulaGolf() {
 
 
 
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    // Function to update the window height when the window is resized
+    function handleResize() {
+      setWindowHeight(window.innerHeight);
+    }
+
+    // Attach the event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   return (
-    <div style={{ backgroundColor: 'black', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <div style={{ backgroundColor: 'black', height: windowHeight, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
   <div>
     <Flex padding='10px' backgroundColor='#076652' direction='row' justifyContent='space-between'>
       <FaArrowAltCircleLeft
