@@ -41,7 +41,7 @@ const Home = () => {
   }, []);
 
     return (
-      <div style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', height: windowHeight  }}>
+      <div style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', height: '100vh' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
         <Link to="/golfing_the_peninsula">
         <button
