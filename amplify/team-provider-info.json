@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-peninsulacaddy-dev-180845-authRole",
+      "UnauthRoleArn": "arn:aws:iam::354222605740:role/amplify-peninsulacaddy-dev-180845-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::354222605740:role/amplify-peninsulacaddy-dev-180845-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-peninsulacaddy-dev-180845-deployment",
+      "UnauthRoleName": "amplify-peninsulacaddy-dev-180845-unauthRole",
+      "StackName": "amplify-peninsulacaddy-dev-180845",
+      "StackId": "arn:aws:cloudformation:us-east-1:354222605740:stack/amplify-peninsulacaddy-dev-180845/3b4d5290-7903-11ee-bb5b-0ead315d4961",
+      "AmplifyAppId": "d1s95ku1hun9g"
+    },
+    "categories": {
+      "auth": {
+        "peninsulacaddy293def77": {}
+      }
+    }
+  }
+}

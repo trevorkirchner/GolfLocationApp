@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Link,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import Home from'./comps/Home'
+import PeninsulaGolf from'./comps/PeninsulaGolf'
+import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 
-function App() {
+
+Amplify.configure(awsExports);
+
+
+
+function App({ signOut, user }) { 
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/golfing_the_peninsula" element={<PeninsulaGolf />} />
+        </Routes>
+    </Router>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
+
