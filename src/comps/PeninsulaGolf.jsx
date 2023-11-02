@@ -136,7 +136,7 @@ function PeninsulaGolf() {
           </Text>
           </div> */}
           <Flex style={{ display: 'flex', gap: '0px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <FaCompressArrowsAlt onClick={() => handleGetLocation()} fontSize='11vw' color='white'/> 
+          <FaCompressArrowsAlt onClick={handleGetLocation} fontSize='11vw' color='white'/> 
           <Text color='white' fontSize='6vw' fontWeight='bold'>
             Pinpoint
           </Text>
@@ -144,7 +144,7 @@ function PeninsulaGolf() {
           <Text lineHeight='1' color='white' fontSize='35vw' fontWeight='bold'>
             {distance.distance}
           </Text>
-          <Text padding='0vh 0vh 7vh 0vh' color='white' fontSize='9vw'>Yards</Text>
+          <Text padding='0vh 0vh 9vh 0vh' color='white' fontSize='9vw'>Yards</Text>
           <div>
           <Link to="/"> {/* Use Link to navigate to the Home page */}
         <FaHome  fontSize='11vw' color='white'/>
