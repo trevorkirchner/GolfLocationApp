@@ -135,7 +135,7 @@ function PeninsulaGolf() {
           <Text color='white' fontSize='8vw' fontWeight='bold'>
             Center
           </Text>
-          <Text color='white' fontSize='20vw' fontWeight='bold'>
+          <Text color='white' fontSize='25vw' fontWeight='bold'>
             {distance.distance}
           </Text>
           </div>

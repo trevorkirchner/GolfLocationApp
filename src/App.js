@@ -27,6 +27,7 @@ function App({ signOut, user }) {
       style={{
         height: '100vh', // 100% of the viewport height
         width: '100vw',  // 100% of the viewport width
+        backgroundColor: 'black'
       }}
     >
     <Router>
