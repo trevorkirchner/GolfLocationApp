@@ -76,7 +76,7 @@ function PeninsulaGolf() {
 
 
   return (
-    <div style={{ backgroundColor: 'black', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <div style={{ backgroundColor: 'black', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'start' }}>
   <div>
     <Flex padding='10px' backgroundColor='#076652' direction='row' justifyContent='space-between'>
       <FaArrowAltCircleLeft
@@ -104,44 +104,50 @@ function PeninsulaGolf() {
       </Flex>
     </div>
 
-    <Flex direction='column' alignItems='center' justifyContent='center'>
+    <Flex direction='column' alignItems='center' justifyContent='center' marginTop='7vh'>
       {distance && (
         <>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        {/* <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <Text color='white' fontSize='5vw' fontWeight='bold'>
             Front 
           </Text>
           <Text color='white' fontSize='15vw' fontWeight='bold'>
             {distance.distance - 5}
           </Text>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <Text color='white' fontSize='8vw' fontWeight='bold'>
-            Center
+          </div> */}
+          <Flex style={{ display: 'flex', gap: '0px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <FaCompressArrowsAlt onClick={() => handleGetLocation()} fontSize='11vw' color='white'/> 
+          <Text color='white' fontSize='6vw' fontWeight='bold'>
+            Pinpoint
           </Text>
-          <Text color='white' fontSize='30vw' fontWeight='bold'>
+          <Text padding='5vh 0vh 0vh 0vh' color='white' fontSize='9vw'>Center Pin</Text>
+          <Text lineHeight='1' color='white' fontSize='35vw' fontWeight='bold'>
             {distance.distance}
           </Text>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <Text padding='0vh 0vh 7vh 0vh' color='white' fontSize='9vw'>Yards</Text>
+          <div>
+          <Link to="/"> {/* Use Link to navigate to the Home page */}
+        <FaHome  fontSize='11vw' color='white'/>
+        </Link>
+        </div>
+          </Flex>
+          {/* <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <Text color='white' fontSize='5vw' fontWeight='bold'>
             Back 
           </Text>
           <Text color='white' fontSize='15vw' fontWeight='bold'>
             {distance.distance + 5}
           </Text>
-          </div>
+          </div> */}
+          
+          
+        
           </>
       )}
     </Flex>
 
 
-  <Flex direction='row' justifyContent='space-between' padding='20px'>
-      <Link to="/"> {/* Use Link to navigate to the Home page */}
-        <FaHome fontSize='11vw' color='white'/>
-        </Link>
-        <FaCompressArrowsAlt onClick={() => handleGetLocation()} fontSize='11vw' color='white'/>
-    </Flex>
+  
 </div>
 
   );
