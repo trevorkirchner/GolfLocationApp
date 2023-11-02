@@ -92,11 +92,11 @@ function PeninsulaGolf() {
 
 
   return (
-    <div style={{ backgroundColor: 'black', height: windowHeight, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <div style={{ backgroundColor: 'black', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
   <div>
-    <Flex padding='10px' backgroundColor='#076652' direction='row' justifyContent='space-between'>
+    <Flex padding='5px 10px 5px 10px' backgroundColor='#076652' direction='row' justifyContent='space-between'>
       <FaArrowAltCircleLeft
-      fontSize='70px'
+      fontSize='50px'
       color={currentHole === 1 ? 'gray' : 'white'}
       onClick={() => {
         if (currentHole !== 1) {
@@ -106,10 +106,10 @@ function PeninsulaGolf() {
     />
     <Flex direction='row' alignItems='center' justifyContent='center'>
       <Text color='white' fontSize='20px' fontWeight='bold'>Hole </Text>
-      <Text color='white' fontSize='50px' fontWeight='bold'>{currentHole}</Text>
+      <Text color='white' fontSize='30px' fontWeight='bold'>{currentHole}</Text>
       </Flex>
       <FaArrowAltCircleRight
-        fontSize='70px'
+        fontSize='50px'
         color={currentHole === 18 ? 'gray' : 'white'}
         onClick={() => {
           if (currentHole !== 18) {
@@ -124,26 +124,26 @@ function PeninsulaGolf() {
       {distance && (
         <>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <Text color='white' fontSize='40px' fontWeight='bold'>
+          <Text color='white' fontSize='30px' fontWeight='bold'>
             Front 
           </Text>
-          <Text color='white' fontSize='90px' fontWeight='bold'>
+          <Text color='white' fontSize='70px' fontWeight='bold'>
             {distance.distance - 5}
           </Text>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <Text color='white' fontSize='60px' fontWeight='bold'>
+          <Text color='white' fontSize='40px' fontWeight='bold'>
             Center
           </Text>
-          <Text color='white' fontSize='120px' fontWeight='bold'>
+          <Text color='white' fontSize='100px' fontWeight='bold'>
             {distance.distance}
           </Text>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <Text color='white' fontSize='40px' fontWeight='bold'>
+          <Text color='white' fontSize='30px' fontWeight='bold'>
             Back 
           </Text>
-          <Text color='white' fontSize='90px' fontWeight='bold'>
+          <Text color='white' fontSize='70px' fontWeight='bold'>
             {distance.distance + 5}
           </Text>
           </div>

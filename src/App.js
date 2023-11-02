@@ -23,12 +23,19 @@ function App({ signOut, user }) {
   
 
   return (
+    <div
+      style={{
+        height: '100vh', // 100% of the viewport height
+        width: '100vw',  // 100% of the viewport width
+      }}
+    >
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/golfing_the_peninsula" element={<PeninsulaGolf />} />
         </Routes>
     </Router>
+    </div>
   );
 }
 
